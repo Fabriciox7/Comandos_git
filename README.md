@@ -97,3 +97,6 @@ git checkout nome_branch : escolha uma branch;
 Unificando Branch :
 
 Com merge tem o histórico certinho mas precisa de um commit a mais para realizar a união:  git merge nome_branch;
+
+
+Com o Rebase a união ela é deixada no mesmo commit, ou seja, não da pra identificar que veio uma alteração de uma branch antiga.Mas o histórico fica linear,se não for alguma alteração que precise saber sobre a alteração em sí, o melhor é usá-lo. : git rebase nome_branch ;

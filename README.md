@@ -84,3 +84,11 @@ atualizar o github do seu repositório:
 git push -u origin master
 
 
+#BRANCH
+
+É um ponteiro móvel que leva a um commit.
+
+git checkout -b nome_branch : cria uma branch ;
+git branch -D nome_branch : exclui uma branck ;
+git branch : lista as branchs que existem;
+git checkout nome_branch : escolha uma branch;

@@ -92,3 +92,8 @@ git checkout -b nome_branch : cria uma branch ;
 git branch -D nome_branch : exclui uma branck ;
 git branch : lista as branchs que existem;
 git checkout nome_branch : escolha uma branch;
+
+
+Unificando Branch :
+
+Com merge tem o histórico certinho mas precisa de um commit a mais para realizar a união:  git merge nome_branch;

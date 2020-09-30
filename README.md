@@ -1,102 +1,67 @@
-# git-course
-Este é um repositório teste para ensinar como o git funciona.
+# Comandos do git
 
-Inicializar um repositório -- git init;
+Este é um repositório que desenvolvi para colocar os principais comandos do git e algumas informações que devemos saber ao utilizarmos. Espero que ajude você também.
 
-ciclo de vida dos status dos arquivos:
-    untracked -> unmodified -> modified -> staged [commit]
+Para inicializar um repositório: 
+    git init;
+Entendermos o ciclo dos arquivos nos torna mais atentos quando estiver utilizando, então, que possamos lembra:
+            
+        ![alt text](https://git-scm.herokuapp.com/book/en/v2/images/lifecycle.png)
 
-    para adicionar arquivos: git add nomedoarquivo.txt
-    para commitar : git commit -m "mensagem sobre o commit" {apenas commitar os que já foram adicionados no staged}
+ Sabendo o ciclo, podemos continuar com os comandos.
+ Para sabermos os status dos arquivos no ciclo:
+    git status
+  
+ Para adicionar um arquivo para o staged:
+    git add <nome_arquivo.md>
+    
+ Para enviarmos ao repositorio local (obs- só é enviado aquele arquivo que esta no staged):
+    git commit -m "descrição sobre o commit" 
+    
+ Para adicionar e commitar simultaneamente:
+    git commit -am "observação sobre o commit"
+    
+Podemos afirmar também, que para cada commit teremos uma identificação para os commit's, possibilitando assim fazer algumas alterações ou saber quando foi feito tal alteração.
 
-    para adicionar e comitar: git commit -am "descrição sobre o commit"
+Para sabermos o histórico dos commit's:
+    git log
 
-    Para saber sobre o status dos arquivos: git status;
+obs- existem flags que auxiliam na busca por algum commit específico.
+Ex:  git log --author="nome"
 
-    Para cada commit a uma identificação na qual podemos trabalhar para desfazer a alteração ou voltar ao um estado que queremos - hash.
+Para saber o historico dos commit's mais enxuto, sem muita informação temos:
+    git shortlog
 
-    Para saber o histórico de commits, temos o comando: git log , podemos visualizar todos os commits e sua hash's.
+Encontrando o commit que deseja, e copiando sua hash você tem a opção de apenas visualizar suas informações:
+    git show <hash_do_commit>
+    
+Alguns comandos que facilitam a edição ou alterações indevidas:
 
-    Podemos buscar também com alguns filtros , por exemplo:
+ - Remove alteração antes de usar o git add:
+        git checkout nome_arquivo.txt
+ - Remove alteração que foi adicionada e não "commitada" ainda:
+        git reset HEAD
+ - Remove alteração depois de ter feito o commit:
+        git reset --soft (a alteração volta para o estado staged)
+        git reset --hard (a alteração volta para 0 estado modified) 
+        e temos o git reset --hard (não aconselho usar muito essa pois ao utilizarmos a informação é apagada e não podemos alterar mais, ou seja ,foi perdida)
 
-    git log --decorate;
-    git log --author="nome";
+Aqui também irei repassar comandos de um assunto bem importante - branchs.
 
-    git shortlog ; É um git log bem resumido.
-    git shortlog -sn ; Sabemos o número de commits de cada desenvolvedor contribuinte.
-    git log --graph; 
-    git show <identificado_hash>
+Para criar uma branch:
+    git checkout -b nome_branch
+Para excluir uma branch:
+    git checkout -D nome_branch
+Para listar as branch's:
+    git branch
+Para escolher uma branch:
+    git checkout nome_branch
+    
 
-    Alguns comandos  que facilita a edição de alterações indevidas antes de commitar.
-
-    git checkout <nome_arquivo> ; antes do git add {remove alteração} ;
-
-    para remover alteração que já foi adicionada, usamos : git reset HEAD. A informação volta para o estágio de unmodified e podemos usar o git checkout para remover.
-
-    Remover uma alteração depois do commit.Existe três opções:
-
-    git reset --soft <hasH_anterior_a_que_deseja_refazer>  = exclui o commit mas retornar as altterações para o staged,não perdendo informações e possibilidando a edição sem perder dado.
-
-    git reset --mixed hasH_anterior_a_que_deseja_refazer>  = exclui a modificação e ainda retorna os dados para o estado de modified.
-
-    git reset --hard <hash anterior a que exclui> = simplesmente apaga o commit anterior.Deve-se ter cuidado ao usar este método.
-
-Podemos criar também uma chave de acesso - SSh - que facilita nossa vida para utilizar o git hub.
-
-Verificar chaves SSH existentes.
-Abra o Terminal
-Digite ls -al ~/.ssh para ver se tem alguma chave SSH presente
-$ ls -al ~/.ssh
-# Lista os arquivos do seu diretório .ssh, se eles existem
-Por padrão, o nome dos arquivos das chaves públicas pode ser um dos seguintes:
-id_dsa.pub
-id_ecdsa.pub
-id_ed25519.pub
-id_rsa.pub
-Bom se você não tem um par de chave pública e privada, ou não quer conectar as que estão disponíveis no Github, então gere uma chave nova.
-Se você viu um par de chave pública e privada listado (por exemplo id_rsa.pub and id_rsa) e gostaria de usá-las para conectar com o Github, você pode adicionar sua chave SSH ao SSH-agent e pular o próximo passo da geração de chave do tutorial.
-Gerar uma nova chave SSH
-Abra o terminal
-Digite isso, substituindo pelo seu email do Github.
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-Isso cria uma nova chave ssh, usando o email como rótulo.
-3. Quando aparecer escrito no terminal “Enter a file in which to save the key,” pressione Enter. Isso aceita a localização do arquivo padrão.
-Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]
-4. No terminal, digite uma senha segura.
-Enter passphrase (empty for no passphrase): [Type a passphrase]
-Enter same passphrase again: [Type passphrase again]
-Adicionando sua chave SSH ao ssh-agent
-Antes de adicionar um nova chave SSH no ssh-agent para gerenciar suas chaves, você deveria Verificar chaves SSH existentes e Gerar uma nova chave SSH se for preciso.
-Inicie o ssh-agent em background.
-$ eval "$(ssh-agent -s)"
-Agent pid 59566
-2. Adicione sua chave privada SSH no ssh-agent. Se você criou sua chave com um nome diferente, substitua id_rsa no comando com o nome de sua chave privada.
-$ ssh-add ~/.ssh/id_rsa
-
-site: https://medium.com/@rgdev/como-adicionar-uma-chave-ssh-na-sua-conta-do-github-linux-e0f19bbc4265
-
-
-
-Para adicionar o repositorio no git hub:
-git remote add origin git@github.com:login/repositorio.git
-
-atualizar o github do seu repositório:
-git push -u origin master
-
-
-#BRANCH
-
-É um ponteiro móvel que leva a um commit.
-
-git checkout -b nome_branch : cria uma branch ;
-git branch -D nome_branch : exclui uma branck ;
-git branch : lista as branchs que existem;
-git checkout nome_branch : escolha uma branch;
-
-
-Unificando Branch :
-
-Com merge tem o histórico certinho mas precisa de um commit a mais para realizar a união:  git merge nome_branch;
-
-
-Com o Rebase a união ela é deixada no mesmo commit, ou seja, não da pra identificar que veio uma alteração de uma branch antiga.Mas o histórico fica linear,se não for alguma alteração que precise saber sobre a alteração em sí, o melhor é usá-lo. : git rebase nome_branch ;
+Ao ultilizarmos branch, podemos fazer uso de multiplas partições e após as alterações, unir as branhc's.Para isso temos duas formas de unificá-las:
+    Merge: Com esse método, iremos ter um histório de toda a passagem até unir elas e iremos ter que acrescentar um commit:
+        git merge nome_brach
+    Rebase: Nesse método,a união é deixada no mesmo commit, ou seja, não da pra identificar que veio uma alteração de uma branch antiga,ou seja, o histórico fica linear. Então, se não for alguma alteração que precise saber sobre o detalhe da alteração em sí, o melhor é usá-lo:
+        git rebase nome_branch
+        
+######Com o uso do git e git hub, espero atualizar esse Readme e fazer algo mais completo para os que estão iniciando, e para que possa ser um tira dúvidas para quem já sabe mas não usa com tanta frequência a ferramenta.        

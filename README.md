@@ -83,4 +83,4 @@ Ao ultilizarmos branch, podemos fazer uso de multiplas partições e após as al
         
         git rebase nome_branch
         
-####Com o uso do git e git hub, espero atualizar esse Readme e fazer algo mais completo para os que estão iniciando, e para que possa ser um tira dúvidas para quem já sabe mas não usa com tanta frequência a ferramenta.        
+####### Com o uso do git e git hub, espero atualizar esse Readme e fazer algo mais completo para os que estão iniciando, e para que possa ser um tira dúvidas para quem já sabe mas não usa com tanta frequência a ferramenta.        

@@ -82,5 +82,7 @@ Ao ultilizarmos branch, podemos fazer uso de multiplas partições e após as al
    Rebase: Nesse método,a união é deixada no mesmo commit, ou seja, não da pra identificar que veio uma alteração de uma branch antiga,ou seja, o histórico fica linear. Então, se não for alguma alteração que precise saber sobre o detalhe da alteração em sí, o melhor é usá-lo:
         
         git rebase nome_branch
-        
-####### Com o uso do git e git hub, espero atualizar esse Readme e fazer algo mais completo para os que estão iniciando, e para que possa ser um tira dúvidas para quem já sabe mas não usa com tanta frequência a ferramenta.        
+
+
+
+###### Com o uso do git e git hub, espero atualizar esse Readme e fazer algo mais completo para os que estão iniciando, e para que possa ser um tira dúvidas para quem já sabe mas não usa com tanta frequência a ferramenta.        

@@ -5,8 +5,9 @@ Este é um repositório que desenvolvi para colocar os principais comandos do gi
 Para inicializar um repositório: 
     git init;
 Entendermos o ciclo dos arquivos nos torna mais atentos quando estiver utilizando, então, que possamos lembra:
-            
-        ![alt text](https://git-scm.herokuapp.com/book/en/v2/images/lifecycle.png)
+        
+        ![alt text](https://git-scm.herokuapp.com/book/en/v2/images/lifecycle.png "Logo Title Text 1")
+      
 
  Sabendo o ciclo, podemos continuar com os comandos.
  Para sabermos os status dos arquivos no ciclo:

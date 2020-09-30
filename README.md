@@ -76,6 +76,7 @@ Para escolher uma branch:
     
 
 Ao ultilizarmos branch, podemos fazer uso de multiplas partições e após as alterações, unir as branhc's.Para isso temos duas formas de unificá-las:
+   
    Merge: Com esse método, iremos ter um histório de toda a passagem até unir elas e iremos ter que acrescentar um commit:
             
             git merge nome_brach
